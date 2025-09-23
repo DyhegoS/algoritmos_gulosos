@@ -1,6 +1,16 @@
 var minimumScarecrows = function(n, field){
-    const fieldArr = field.split("");
+    const fieldArr = field.split("").sort();
+
+    for(let i = 0; i < n - 1; i++){
+        if(fieldArr[i] == "."){
+            
+        }
+    }
+
+    console.log(fieldArr)
     let scarecrow = 0;
+
+
 
 };
 
