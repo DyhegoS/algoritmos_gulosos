@@ -1,16 +1,22 @@
 var minimumScarecrows = function(n, field){
     const fieldArr = field.split("").sort();
-
+    let scarecrow = 0;
+    let fertile = 0;
+    let fertileCount = 0;
     for(let i = 0; i < n - 1; i++){
         if(fieldArr[i] == "."){
-            
+            fertile = true;
+            fertileCount++;
+            scarecrow++;
+            while(fertile){
+               if(fertileCount == 3){
+                    break;
+               }
+            }
         }
     }
 
-    console.log(fieldArr)
-    let scarecrow = 0;
-
-
+    return scarecrow;
 
 };
 
@@ -23,6 +29,8 @@ const entrada2 = {
     "n": 11,
     "field": "...##....##"
 };
+
+
 
 const entrada3 = {
     "n": 2,
