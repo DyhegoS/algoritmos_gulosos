@@ -1,19 +1,32 @@
 var lemonadeChange = function(bills){
-    let cashier = new Map();
-
-    for(let i = 0; i < bills.length; i++){
+    let cashier = 0;
+    let n = bills.length;
+    let result = false;
+    for(let i = 0; i < n; i++){
         if(bills[i] > 5){
-            let change = bills[i] - 5;           
-            if(cashier.has(change)){
-                cashier.set("cas")
+            let change = bills[i] - 5;
+            if(cashier >= change){
+                cashier += 5;
+                cashier -= change;
+                result = true;
             }
-            
+            else{
+                return result = false;
+            }
+        }else{
+            cashier += 5;
+            result = true;
         }
-
-        cashier.set("cashier", bills[i]);
+        
+        
     }
+    return result
+
 
 }
+
+
+
 
 const entrada1 = {
     "bills": [5, 5, 5, 10, 20]
