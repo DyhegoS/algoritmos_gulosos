@@ -1,7 +1,7 @@
 var minimumRooms = function (start, end, n) {
-    let rooms = [];
+    let rooms = 1;
 
-    for(let i = 1; i < n - 1; i++){      
+    for(let i = 0; i < n - 1; i++){      
         if(start[i + 1] < end[i]){
             rooms++;
         }
