@@ -1,11 +1,19 @@
 var numRescueBoats = function(people, limit){
     people.sort((a, b) => a - b);
-    let boatCount = 0;
+    let boatsList = [];
     for(let i = 0; i < people.length; i++){
-        if(people[i] <= limit && boatCount < limit){
-            
+        boatsList[i] = [];
+        while(boatsList[i].length < limit){
+            if(people[i] < limit){
+                boatsList[i].push(people[i])
+            }else{
+                break;
+            }
         }
+        
     }
+
+    return boatsList;
 }
 
 const entrada1= {
