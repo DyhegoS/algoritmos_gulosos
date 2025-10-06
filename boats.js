@@ -2,21 +2,26 @@ var numRescueBoats = function (people, limit) {
     people.sort((a, b) => a - b);
 
     let boatList = []
-    let boat = [];
-    let boatLimit = 0;
+    let boat = []
+    let boatLimit = limit;
+    let boatFull = false;
     
-    for (let i = 0; i < people.length; i++) {
-        boatLimit += people[i];
-        missingSpace = limit - boatLimit;
-        if(boatLimit <= limit && people[i] > missingSpace){
+    for (let i = 0; i < people.length; i++) {  
+        if(people[i] < boatLimit){
             boat.push(people[i]);
+            boatLimit -= people[i];
+        }else{
+            boatFull = true;
         }
-
-        boatList.push(boat);
+        
+        console.log(boatList)
+        if(boatFull){
+            boatList.push(boat);
+        }
         
     }
 
-    return boatList.length;
+    return boatList;
 
 
 }

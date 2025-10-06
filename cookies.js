@@ -27,8 +27,8 @@ const entrada2 = {
 }
 
 const entrada3 = {
-    "g": [2, 3, 4, 5],
-    "s": [1, 0, 1]
+    "g": [1, 2, 3],
+    "s": [3]
 }
 
 console.log(findContentChildren(entrada1.g, entrada1.s));

@@ -1,18 +1,12 @@
 var minimumScarecrows = function(n, field){
-    const fieldArr = field.split("").sort();
     let scarecrow = 0;
-    let fertile = 0;
-    let fertileCount = 0;
-    for(let i = 0; i < n - 1; i++){
-        if(fieldArr[i] == "."){
-            fertile = true;
-            fertileCount++;
+    
+    //percorrer o campo
+    for(let i = 0;i < n; i++){
+        //achar um ponto fertil e colocar espantalho
+        if(field[i] === "."){
             scarecrow++;
-            while(fertile){
-               if(fertileCount == 3){
-                    break;
-               }
-            }
+            i += 2;
         }
     }
 

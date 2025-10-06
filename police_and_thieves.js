@@ -8,9 +8,14 @@ var catchThieves = function (arr, n, k) {
         }
     }
 
-    for(let i = 0; i < n; i++){
-        
+    if(thieves.length > 0){
+        for(let i = 0; i < n; i++){
+            if(arr[i] === "P"){
+                
+            }
+        }
     }
+    
 }
 
 const entrada1 = {
