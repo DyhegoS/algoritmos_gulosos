@@ -1,19 +1,38 @@
 var findLargest = function(n, s){
-    let sum = 0;
-    let result
-    if(s == 0){
+    //1. ver se é possivel  que exista um número  nessas condições, se não retornar -1
+    if(9 * s == 0){
         return -1;
     }
-    
-    let digits = Array(n).fill(9);
-    for(let i = 0; i < n; i++){
-        sum += digits[i]
+
+    //2. escolher os maiores digitos possiveis pro valor
+    let ans = "";
+    while(s > 0){
+        let digit;
+
+        if(s - 9 >= 0){
+            s -= 9;
+            digit = "9";
+        }
+        else{
+            digit = String.fromCharCode('0'.charCodeAt(0) + s);
+            s = 0;
+        }
+
+        ans += digit
+
+        //3. completar N digitos restantes se necessarios
+        while(ans.length < n){
+            ans += "0";
+        }
+
+        return ans;
     }
 
-    if(sum == s){
-        console.log(sum)
-        
-    }
+    
+    
+    
+
+    
 
 }
 
