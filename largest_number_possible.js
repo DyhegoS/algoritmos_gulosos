@@ -1,13 +1,13 @@
 var findLargest = function(n, s){
     //1. ver se é possivel  que exista um número  nessas condições, se não retornar -1
-    if(9 * s == 0){
-        return -1;
+    if(9 * n < s || (s == 0 && n > 1)){
+        return "-1";
     }
 
     //2. escolher os maiores digitos possiveis pro valor
     let ans = "";
+    let digit;
     while(s > 0){
-        let digit;
 
         if(s - 9 >= 0){
             s -= 9;
@@ -18,22 +18,15 @@ var findLargest = function(n, s){
             s = 0;
         }
 
-        ans += digit
-
-        //3. completar N digitos restantes se necessarios
-        while(ans.length < n){
-            ans += "0";
-        }
-
-        return ans;
+        ans += digit; 
     }
-
     
+    //3. completar N digitos restantes se necessarios
+    while(ans.length < n){
+        ans += "0";
+    }
     
-    
-
-    
-
+    return ans;
 }
 
 const entrada1 = {
