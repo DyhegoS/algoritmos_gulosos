@@ -1,29 +1,27 @@
 var numRescueBoats = function (people, limit) {
-    people.sort((a, b) => a - b);
+    let l = 0, r = people.length - 1;
 
-    let boatList = []
-    let boat = []
-    let boatLimit = limit;
-    let boatFull = false;
+    people.sort((a, b) => a- b);
+
+    let boats = 0;
     
-    for (let i = 0; i < people.length; i++) {  
-        if(people[i] < boatLimit){
-            boat.push(people[i]);
-            boatLimit -= people[i];
-        }else{
-            boatFull = true;
+    while(l <= r) {
+        // fit two people in one boat
+        if(people[r] + people[l] <= limit){
+            l++;
+            r--;
         }
-        
-        console.log(boatList)
-        if(boatFull){
-            boatList.push(boat);
+        // only fit the heaviest
+        else if(people[r] <= limit){
+            r--;
         }
-        
+        else{
+            l++;
+        }
+        boats++;
     }
 
-    return boatList;
-
-
+    return boats;
 }
 
 const entrada1 = {
