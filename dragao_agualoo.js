@@ -1,4 +1,15 @@
 function agualoo(n, m, diameters, heights) {
+    let dragons = diameters.sort((a, b) => a - b);
+    let knights = heights.sort((a, b) => a - b);
+    let count = 0;
+    let dragonDefeated = false;
+    for(let i = 0; i < knights; i++){
+        if(knights[i] >= dragons[i]){
+            count += knights[i];
+        }
+    }
+
+    
 
 }
 
