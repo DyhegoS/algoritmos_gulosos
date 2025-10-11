@@ -1,15 +1,28 @@
 function agualoo(n, m, diameters, heights) {
-    let dragons = diameters.sort((a, b) => a - b);
-    let knights = heights.sort((a, b) => a - b);
-    let count = 0;
-    let dragonDefeated = false;
-    for(let i = 0; i < knights; i++){
-        if(knights[i] >= dragons[i]){
-            count += knights[i];
+    let dragon = diameters.sort((a, b) => b - a);
+    let knight = heights.sort((a, b) => b - a);
+
+    let knights = m - 1;
+    let dragonHeads = n - 1;
+    let coins = 0;
+
+    while (knights > 0) {
+
+        if (knight[knights] >= dragon[dragonHeads]) {
+            knights--;
+            dragonHeads--;
+            coins += knight[knights];
+        } else {
+            knights--;
         }
     }
 
-    
+    if (dragonHeads == 0) {
+        return coins;
+    } else {
+        return 'Agualoo esta condenada!'
+    }
+
 
 }
 
