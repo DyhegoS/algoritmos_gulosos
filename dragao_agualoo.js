@@ -1,29 +1,29 @@
 function agualoo(n, m, diameters, heights) {
-    let dragon = diameters.sort((a, b) => b - a);
-    let knight = heights.sort((a, b) => b - a);
-
-    let knights = m - 1;
-    let dragonHeads = n - 1;
+    let knights = heights.sort((a, b) => a - b);
+    let dragonHeads = diameters.sort((a, b) => a - b);
+    let knight = 0;
+    let dragonHead = 0;
     let coins = 0;
 
-    while (knights > 0) {
+    for(let i = 0; i < m - 1; i++){
 
-        if (knight[knights] >= dragon[dragonHeads]) {
-            knights--;
-            dragonHeads--;
-            coins += knight[knights];
-        } else {
-            knights--;
+        while(knight < n - 1){
+            if(knights[knight] >= dragonHeads[i]){
+                knight++;
+                dragonHead++;
+                coins += knights[knight];
+                break;
+            }else{
+                knight++;
+            }
         }
     }
 
-    if (dragonHeads == 0) {
+    if(dragonHead == m - 1){
         return coins;
-    } else {
-        return 'Agualoo esta condenada!'
+    }else{
+        return 'Agualoo está condenada!'
     }
-
-
 }
 
 const entrada1 = {
@@ -55,8 +55,7 @@ const entrada5 = {
     "n": 2,
     "m": 10,
     "diameters": [1234567, 2345],
-    "heights": [12345610, 1, 123, 23564,
-        123456, 123, 2, 3, 2, 1]
+    "heights": [12345610, 1, 123, 23564, 123456, 123, 2, 3, 2, 1]
 };
 
 console.log(agualoo(entrada1.n, entrada1.m, entrada1.diameters, entrada1.heights));
